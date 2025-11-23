@@ -1,0 +1,36 @@
+{
+  "name": "MockMind - AI Interview Prep Platform",
+  "short_name": "MockMind",
+  "description": "Practice interviews with AI. Get personalized mock interviews with real-time voice interaction and detailed feedback.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity", "business"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Start Interview",
+      "short_name": "Interview",
+      "description": "Start a new mock interview",
+      "url": "/",
+      "icons": [{ "src": "/logo.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "View History",
+      "short_name": "History",
+      "description": "View your interview history",
+      "url": "/history",
+      "icons": [{ "src": "/logo.svg", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer glow circle -->
+  <circle cx="100" cy="100" r="90" fill="url(#glowGradient)" opacity="0.2"/>
+
+  <!-- Modern geometric brain shape -->
+  <g transform="translate(100, 100)">
+    <!-- Central core -->
+    <circle cx="0" cy="0" r="25" fill="url(#mainGradient)" opacity="0.3"/>
+
+    <!-- Neural network nodes -->
+    <circle cx="0" cy="-35" r="8" fill="url(#mainGradient)" filter="url(#glow)"/>
+    <circle cx="30" cy="-17" r="7" fill="url(#mainGradient)" filter="url(#glow)"/>
+    <circle cx="30" cy="17" r="7" fill="url(#mainGradient)" filter="url(#glow)"/>
+    <circle cx="0" cy="35" r="8" fill="url(#mainGradient)" filter="url(#glow)"/>
+    <circle cx="-30" cy="17" r="7" fill="url(#mainGradient)" filter="url(#glow)"/>
+    <circle cx="-30" cy="-17" r="7" fill="url(#mainGradient)" filter="url(#glow)"/>
+
+    <!-- Outer ring nodes -->
+    <circle cx="0" cy="-50" r="5" fill="#34d399" opacity="0.8"/>
+    <circle cx="43" cy="-25" r="5" fill="#34d399" opacity="0.8"/>
+    <circle cx="43" cy="25" r="5" fill="#34d399" opacity="0.8"/>
+    <circle cx="0" cy="50" r="5" fill="#34d399" opacity="0.8"/>
+    <circle cx="-43" cy="25" r="5" fill="#34d399" opacity="0.8"/>
+    <circle cx="-43" cy="-25" r="5" fill="#34d399" opacity="0.8"/>
+
+    <!-- Connection lines -->
+    <g stroke="url(#mainGradient)" stroke-width="1.5" opacity="0.6" stroke-linecap="round">
+      <line x1="0" y1="-35" x2="0" y2="-50"/>
+      <line x1="0" y1="-35" x2="30" y2="-17"/>
+      <line x1="0" y1="-35" x2="-30" y2="-17"/>
+
+      <line x1="30" y1="-17" x2="43" y2="-25"/>
+      <line x1="30" y1="-17" x2="30" y2="17"/>
+      <line x1="30" y1="-17" x2="0" y2="0"/>
+
+      <line x1="30" y1="17" x2="43" y2="25"/>
+      <line x1="30" y1="17" x2="0" y2="35"/>
+      <line x1="30" y1="17" x2="0" y2="0"/>
+
+      <line x1="0" y1="35" x2="0" y2="50"/>
+      <line x1="0" y1="35" x2="-30" y2="17"/>
+      <line x1="0" y1="35" x2="0" y2="0"/>
+
+      <line x1="-30" y1="17" x2="-43" y2="25"/>
+      <line x1="-30" y1="17" x2="-30" y2="-17"/>
+      <line x1="-30" y1="17" x2="0" y2="0"/>
+
+      <line x1="-30" y1="-17" x2="-43" y2="-25"/>
+      <line x1="-30" y1="-17" x2="0" y2="0"/>
+    </g>
+
+    <!-- Microphone wave pattern integrated into design -->
+    <g transform="translate(0, 0)" opacity="0.4">
+      <path d="M -60,-30 Q -55,-25 -50,-30 Q -45,-35 -40,-30"
+            stroke="#10b981" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M 60,-30 Q 55,-25 50,-30 Q 45,-35 40,-30"
+            stroke="#10b981" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M -60,0 Q -55,5 -50,0 Q -45,-5 -40,0"
+            stroke="#10b981" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M 60,0 Q 55,5 50,0 Q 45,-5 40,0"
+            stroke="#10b981" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Circular border with gradient -->
+  <circle cx="100" cy="100" r="70"
+          stroke="url(#mainGradient)"
+          stroke-width="1"
+          fill="none"
+          opacity="0.3"
+          stroke-dasharray="4 4"/>
+</svg>

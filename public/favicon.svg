@@ -1,0 +1,37 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Central core -->
+  <circle cx="16" cy="16" r="5" fill="url(#grad)" opacity="0.3"/>
+
+  <!-- Neural nodes -->
+  <circle cx="16" cy="9" r="2.5" fill="url(#grad)"/>
+  <circle cx="21" cy="13" r="2" fill="url(#grad)"/>
+  <circle cx="21" cy="19" r="2" fill="url(#grad)"/>
+  <circle cx="16" cy="23" r="2.5" fill="url(#grad)"/>
+  <circle cx="11" cy="19" r="2" fill="url(#grad)"/>
+  <circle cx="11" cy="13" r="2" fill="url(#grad)"/>
+
+  <!-- Connection lines -->
+  <g stroke="#10b981" stroke-width="0.8" opacity="0.5">
+    <line x1="16" y1="9" x2="21" y2="13"/>
+    <line x1="16" y1="9" x2="11" y2="13"/>
+    <line x1="21" y1="13" x2="21" y2="19"/>
+    <line x1="21" y1="19" x2="16" y2="23"/>
+    <line x1="16" y1="23" x2="11" y2="19"/>
+    <line x1="11" y1="19" x2="11" y2="13"/>
+  </g>
+
+  <!-- Outer accent dots -->
+  <circle cx="16" cy="6" r="1.2" fill="#34d399" opacity="0.8"/>
+  <circle cx="24" cy="11" r="1.2" fill="#34d399" opacity="0.8"/>
+  <circle cx="24" cy="21" r="1.2" fill="#34d399" opacity="0.8"/>
+  <circle cx="16" cy="26" r="1.2" fill="#34d399" opacity="0.8"/>
+  <circle cx="8" cy="21" r="1.2" fill="#34d399" opacity="0.8"/>
+  <circle cx="8" cy="11" r="1.2" fill="#34d399" opacity="0.8"/>
+</svg>
