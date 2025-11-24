@@ -292,7 +292,7 @@ https://www.linkedin.com/jobs/view/123456789/"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
-          className="grid grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6"
         >
           {[
             { number: "1K+", label: "Active Users", gradient: "from-emerald-400 to-green-400" },
@@ -302,12 +302,12 @@ https://www.linkedin.com/jobs/view/123456789/"
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="p-6 rounded-2xl bg-zinc-900/50 backdrop-blur-xl border border-white/10 text-center group/stat cursor-default"
+              className="p-5 sm:p-6 rounded-2xl bg-zinc-900/50 backdrop-blur-xl border border-white/10 text-center group/stat cursor-default"
             >
-              <div className={`text-4xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 group-hover/stat:scale-110 transition-transform`}>
+              <div className={`text-3xl sm:text-4xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 group-hover/stat:scale-110 transition-transform`}>
                 {stat.number}
               </div>
-              <p className="text-gray-400 text-sm font-medium">{stat.label}</p>
+              <p className="text-gray-400 text-xs sm:text-sm font-medium">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>

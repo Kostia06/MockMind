@@ -117,16 +117,16 @@ function ZoomInterviewContent() {
 
   // Completion screen
   return (
-    <div className="w-screen h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="w-screen min-h-screen bg-black flex items-center justify-center p-3 sm:p-4 relative overflow-y-auto py-8">
       {/* Animated mesh gradient background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-900/20 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-teal-900/20 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
       {/* Noise texture */}
-      <div className="absolute inset-0 opacity-[0.015] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] pointer-events-none" />
+      <div className="fixed inset-0 opacity-[0.015] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -134,9 +134,9 @@ function ZoomInterviewContent() {
         className="w-full max-w-4xl relative z-10"
       >
         <div className="group relative">
-          <div className="absolute -inset-[1px] bg-gradient-to-r from-emerald-500/50 via-green-500/50 to-teal-500/50 rounded-3xl opacity-50 blur-sm" />
+          <div className="absolute -inset-[1px] bg-gradient-to-r from-emerald-500/50 via-green-500/50 to-teal-500/50 rounded-2xl sm:rounded-3xl opacity-50 blur-sm" />
 
-          <div className="relative bg-zinc-900/80 backdrop-blur-2xl rounded-3xl shadow-2xl p-8 sm:p-12 text-center space-y-8 border border-white/10">
+          <div className="relative bg-zinc-900/80 backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-12 text-center space-y-6 sm:space-y-8 border border-white/10">
             {/* Celebration */}
             <motion.div
               initial={{ scale: 0 }}
@@ -147,11 +147,11 @@ function ZoomInterviewContent() {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 2 }}
-                className="text-7xl mb-2"
+                className="text-5xl sm:text-6xl lg:text-7xl mb-2"
               >
                 🎉
               </motion.div>
-              <div className="flex justify-center gap-3 text-4xl">
+              <div className="flex justify-center gap-2 sm:gap-3 text-2xl sm:text-3xl lg:text-4xl">
                 <motion.span
                   animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
                   transition={{ repeat: Infinity, duration: 2 }}
@@ -178,9 +178,9 @@ function ZoomInterviewContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="space-y-3"
+              className="space-y-2 sm:space-y-3"
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white">
                 Interview
                 <br />
                 <span className="relative inline-block">
@@ -190,7 +190,7 @@ function ZoomInterviewContent() {
                   </span>
                 </span>
               </h1>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+              <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
                 Great job! Your responses have been analyzed using AI. Ready to review your performance?
               </p>
             </motion.div>
@@ -200,7 +200,7 @@ function ZoomInterviewContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="grid grid-cols-3 gap-4 sm:gap-6 my-8"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 my-8"
             >
               {[
                 {
@@ -238,10 +238,10 @@ function ZoomInterviewContent() {
                         {stat.icon}
                       </svg>
                     </div>
-                    <div className={`text-3xl sm:text-4xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 capitalize`}>
+                    <div className={`text-2xl sm:text-4xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 capitalize`}>
                       {stat.value}
                     </div>
-                    <p className="text-gray-400 text-sm font-medium">{stat.label}</p>
+                    <p className="text-gray-400 text-xs sm:text-sm font-medium">{stat.label}</p>
                   </div>
                 </motion.div>
               ))}
@@ -256,27 +256,27 @@ function ZoomInterviewContent() {
             >
               <button
                 onClick={handleViewFeedback}
-                className="group/btn relative w-full px-8 py-4 rounded-xl overflow-hidden transition-all"
+                className="group/btn relative w-full px-6 sm:px-8 py-3 sm:py-4 rounded-xl overflow-hidden transition-all"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 group-hover/btn:from-emerald-600 group-hover/btn:to-green-600 transition-all" />
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 blur-xl opacity-50 group-hover/btn:opacity-75 transition-all" />
-                <span className="relative text-white font-bold text-lg flex items-center justify-center gap-2">
+                <span className="relative text-white font-bold text-base sm:text-lg flex items-center justify-center gap-2">
                   View Detailed Feedback
-                  <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
               </button>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <button
                   onClick={handleNewInterview}
-                  className="group/btn relative px-6 py-3 rounded-xl overflow-hidden transition-all"
+                  className="group/btn relative px-5 sm:px-6 py-3 rounded-xl overflow-hidden transition-all"
                 >
                   <div className="absolute inset-0 bg-white/5 group-hover/btn:bg-white/10 transition-all" />
                   <div className="absolute inset-0 border border-white/10 group-hover/btn:border-white/20 rounded-xl transition-all" />
-                  <span className="relative text-white font-semibold flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span className="relative text-white font-semibold text-sm sm:text-base flex items-center justify-center gap-2">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                     </svg>
                     New Interview
@@ -285,12 +285,12 @@ function ZoomInterviewContent() {
 
                 <button
                   onClick={handleBackToHome}
-                  className="group/btn relative px-6 py-3 rounded-xl overflow-hidden transition-all"
+                  className="group/btn relative px-5 sm:px-6 py-3 rounded-xl overflow-hidden transition-all"
                 >
                   <div className="absolute inset-0 bg-white/5 group-hover/btn:bg-white/10 transition-all" />
                   <div className="absolute inset-0 border border-white/10 group-hover/btn:border-white/20 rounded-xl transition-all" />
-                  <span className="relative text-white font-semibold flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span className="relative text-white font-semibold text-sm sm:text-base flex items-center justify-center gap-2">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
                     Home

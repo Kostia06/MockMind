@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   authors: [{ name: "MockMind" }],
   creator: "MockMind",
   publisher: "MockMind",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

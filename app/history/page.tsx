@@ -196,7 +196,7 @@ export default function HistoryPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="grid grid-cols-3 gap-4 sm:gap-6 mb-8"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8"
             >
               {[
                 {
@@ -228,13 +228,13 @@ export default function HistoryPage() {
                 >
                   <div className={`absolute -inset-[1px] bg-gradient-to-r ${stat.gradient} rounded-2xl opacity-0 group-hover/stat:opacity-100 blur-sm transition-all duration-500`} />
 
-                  <div className="relative p-4 sm:p-6 rounded-2xl bg-zinc-900/80 backdrop-blur-xl border border-white/10 text-center">
+                  <div className="relative p-5 sm:p-6 rounded-2xl bg-zinc-900/80 backdrop-blur-xl border border-white/10 text-center">
                     <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mx-auto mb-3 group-hover/stat:scale-110 transition-transform`}>
                       <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {stat.icon}
                       </svg>
                     </div>
-                    <div className={`text-3xl sm:text-4xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-1`}>
+                    <div className={`text-2xl sm:text-4xl font-black bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-1`}>
                       {stat.value}
                     </div>
                     <p className="text-gray-400 text-xs sm:text-sm font-medium">{stat.label}</p>
@@ -250,9 +250,9 @@ export default function HistoryPage() {
               transition={{ delay: 0.6 }}
               className="space-y-4"
             >
-              <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <h2 className="text-lg sm:text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -269,20 +269,20 @@ export default function HistoryPage() {
                 >
                   <div className="absolute -inset-[1px] bg-gradient-to-r from-emerald-500/30 to-green-500/30 rounded-xl opacity-0 group-hover/item:opacity-100 blur-sm transition-all duration-500" />
 
-                  <div className="relative p-5 rounded-xl bg-zinc-900/80 backdrop-blur-xl border border-white/10 hover:bg-zinc-900/90 transition-all">
-                    <div className="flex justify-between items-start md:items-center flex-col md:flex-row gap-4">
-                      <div className="flex-1">
-                        <h3 className="font-bold text-white text-lg capitalize mb-1">
+                  <div className="relative p-4 sm:p-5 rounded-xl bg-zinc-900/80 backdrop-blur-xl border border-white/10 hover:bg-zinc-900/90 transition-all">
+                    <div className="flex justify-between items-start md:items-center flex-col md:flex-row gap-3 sm:gap-4">
+                      <div className="flex-1 w-full md:w-auto">
+                        <h3 className="font-bold text-white text-base sm:text-lg capitalize mb-1">
                           {session.jobRole} - {session.jobLevel} Level
                         </h3>
-                        <p className="text-sm text-gray-400 flex items-center gap-2">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <p className="text-xs sm:text-sm text-gray-400 flex items-center gap-2">
+                          <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                           {formatDate(session.timestamp)}
                         </p>
                       </div>
-                      <div className="flex gap-6 text-sm">
+                      <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm w-full md:w-auto justify-between md:justify-start">
                         <div className="text-center">
                           <p className="text-gray-400 text-xs mb-1">Questions</p>
                           <p className="font-bold text-white">{session.questionsAnswered}</p>

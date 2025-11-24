@@ -65,9 +65,9 @@ export default function ZoomWaitingRoom({
   ];
 
   return (
-    <div className="w-screen h-screen bg-black flex items-center justify-center p-4 overflow-hidden relative">
+    <div className="w-screen min-h-screen bg-black flex items-center justify-center p-3 sm:p-4 overflow-y-auto relative">
       {/* Animated mesh gradient background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute w-[800px] h-[800px] rounded-full opacity-20 blur-3xl"
           style={{
@@ -85,14 +85,14 @@ export default function ZoomWaitingRoom({
       {/* Noise texture */}
       <div className="absolute inset-0 opacity-[0.015] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] pointer-events-none" />
 
-      <div className="w-full max-w-6xl relative z-10 space-y-8">
+      <div className="w-full max-w-6xl relative z-10 space-y-4 sm:space-y-6 md:space-y-8 py-4 sm:py-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center"
         >
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4">
             Ready for Your
             <br />
             <span className="relative inline-block">
@@ -102,20 +102,20 @@ export default function ZoomWaitingRoom({
               </span>
             </span>
           </h1>
-          <p className="text-gray-400 text-lg mb-2">
+          <p className="text-gray-400 text-sm sm:text-base md:text-lg mb-2">
             Position: <span className="font-semibold bg-gradient-to-r from-emerald-400 to-green-300 bg-clip-text text-transparent">{jobRole}</span>
           </p>
-          <p className="text-gray-400">Test your camera and choose your interviewer's voice</p>
+          <p className="text-gray-400 text-xs sm:text-sm md:text-base">Test your camera and choose your interviewer's voice</p>
         </motion.div>
 
         {/* Main content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           {/* Video preview */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="space-y-4"
+            className="space-y-3 sm:space-y-4"
           >
             <div className="group relative">
               <div className="absolute -inset-[1px] bg-gradient-to-r from-emerald-500/50 to-green-500/50 rounded-2xl opacity-50 blur-sm" />
@@ -154,10 +154,10 @@ export default function ZoomWaitingRoom({
             </div>
 
             {/* Controls */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               <button
                 onClick={() => setVideoOn(!videoOn)}
-                className={`group/btn relative flex-1 py-3 rounded-xl overflow-hidden transition-all ${
+                className={`group/btn relative flex-1 py-2.5 sm:py-3 rounded-xl overflow-hidden transition-all ${
                   videoOn ? "" : "opacity-75"
                 }`}
               >
@@ -171,21 +171,22 @@ export default function ZoomWaitingRoom({
                     ? "border-white/10 group-hover/btn:border-white/20"
                     : "border-red-400/30 group-hover/btn:border-red-400/50"
                 } rounded-xl transition-all`} />
-                <span className="relative text-white font-semibold flex items-center justify-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="relative text-white font-semibold text-xs sm:text-sm md:text-base flex items-center justify-center gap-1.5 sm:gap-2">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {videoOn ? (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                     ) : (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                     )}
                   </svg>
-                  {videoOn ? "Video On" : "Video Off"}
+                  <span className="hidden sm:inline">{videoOn ? "Video On" : "Video Off"}</span>
+                  <span className="sm:hidden">{videoOn ? "Video" : "Off"}</span>
                 </span>
               </button>
 
               <button
                 onClick={() => setAudioOn(!audioOn)}
-                className={`group/btn relative flex-1 py-3 rounded-xl overflow-hidden transition-all ${
+                className={`group/btn relative flex-1 py-2.5 sm:py-3 rounded-xl overflow-hidden transition-all ${
                   audioOn ? "" : "opacity-75"
                 }`}
               >
@@ -199,15 +200,16 @@ export default function ZoomWaitingRoom({
                     ? "border-white/10 group-hover/btn:border-white/20"
                     : "border-red-400/30 group-hover/btn:border-red-400/50"
                 } rounded-xl transition-all`} />
-                <span className="relative text-white font-semibold flex items-center justify-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="relative text-white font-semibold text-xs sm:text-sm md:text-base flex items-center justify-center gap-1.5 sm:gap-2">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {audioOn ? (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                     ) : (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                     )}
                   </svg>
-                  {audioOn ? "Audio On" : "Audio Off"}
+                  <span className="hidden sm:inline">{audioOn ? "Audio On" : "Audio Off"}</span>
+                  <span className="sm:hidden">{audioOn ? "Audio" : "Off"}</span>
                 </span>
               </button>
             </div>
@@ -218,21 +220,21 @@ export default function ZoomWaitingRoom({
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="space-y-4"
+            className="space-y-3 sm:space-y-4"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                 </svg>
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white">Interviewer Voice</h2>
-                <p className="text-gray-400 text-sm">Choose your AI interviewer's voice</p>
+                <h2 className="text-base sm:text-lg md:text-xl font-bold text-white">Interviewer Voice</h2>
+                <p className="text-gray-400 text-xs sm:text-sm">Choose your AI interviewer's voice</p>
               </div>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {voiceOptions.map((option, idx) => (
                 <motion.button
                   key={option.id}
@@ -248,20 +250,20 @@ export default function ZoomWaitingRoom({
                       : "opacity-0"
                   }`} />
 
-                  <div className={`relative p-4 rounded-xl backdrop-blur-xl border transition-all ${
+                  <div className={`relative p-3 sm:p-4 rounded-xl backdrop-blur-xl border transition-all ${
                     selectedVoice === option.id
                       ? "bg-zinc-900/80 border-white/20"
                       : "bg-zinc-900/50 border-white/10 hover:bg-zinc-900/70 hover:border-white/20"
                   }`}>
-                    <div className="flex items-center gap-4">
-                      <div className="text-3xl">{option.icon}</div>
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="text-2xl sm:text-3xl">{option.icon}</div>
                       <div className="flex-1 text-left">
-                        <div className="font-bold text-white text-lg">{option.name}</div>
-                        <div className="text-sm text-gray-400">{option.desc}</div>
+                        <div className="font-bold text-white text-base sm:text-lg">{option.name}</div>
+                        <div className="text-xs sm:text-sm text-gray-400">{option.desc}</div>
                       </div>
                       {selectedVoice === option.id && (
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400 to-green-400 flex items-center justify-center">
-                          <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-emerald-400 to-green-400 flex items-center justify-center flex-shrink-0">
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
                         </div>
@@ -279,7 +281,7 @@ export default function ZoomWaitingRoom({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4"
         >
           {[
             { icon: "🎥", title: "Good Lighting", desc: "Ensure your face is well-lit" },
@@ -291,10 +293,10 @@ export default function ZoomWaitingRoom({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 + idx * 0.1 }}
-              className="p-4 rounded-xl bg-zinc-900/50 backdrop-blur-xl border border-white/10 hover:border-emerald-400/30 hover:bg-zinc-900/70 transition-all"
+              className="p-3 sm:p-4 rounded-xl bg-zinc-900/50 backdrop-blur-xl border border-white/10 hover:border-emerald-400/30 hover:bg-zinc-900/70 transition-all"
             >
-              <div className="text-2xl mb-2">{tip.icon}</div>
-              <div className="font-bold text-white text-sm mb-1">{tip.title}</div>
+              <div className="text-xl sm:text-2xl mb-1.5 sm:mb-2">{tip.icon}</div>
+              <div className="font-bold text-white text-xs sm:text-sm mb-1">{tip.title}</div>
               <div className="text-xs text-gray-400">{tip.desc}</div>
             </motion.div>
           ))}
@@ -305,16 +307,16 @@ export default function ZoomWaitingRoom({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
         >
           <button
             onClick={onBack}
-            className="group/btn relative px-6 py-3 rounded-xl overflow-hidden transition-all"
+            className="group/btn relative px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl overflow-hidden transition-all"
           >
             <div className="absolute inset-0 bg-white/5 group-hover/btn:bg-white/10 transition-all" />
             <div className="absolute inset-0 border border-white/10 group-hover/btn:border-white/20 rounded-xl transition-all" />
-            <span className="relative text-white font-semibold flex items-center justify-center gap-2">
-              <svg className="w-5 h-5 group-hover/btn:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="relative text-white font-semibold text-sm sm:text-base flex items-center justify-center gap-2">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
               Back
@@ -323,13 +325,13 @@ export default function ZoomWaitingRoom({
 
           <button
             onClick={() => onJoin(selectedVoice, jobRole, jobLevel)}
-            className="group/btn relative px-12 py-3 rounded-xl overflow-hidden transition-all"
+            className="group/btn relative px-8 sm:px-12 py-2.5 sm:py-3 rounded-xl overflow-hidden transition-all"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 group-hover/btn:from-emerald-600 group-hover/btn:to-green-600 transition-all" />
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 blur-xl opacity-50 group-hover/btn:opacity-75 transition-all" />
-            <span className="relative text-white font-bold text-lg flex items-center gap-2">
+            <span className="relative text-white font-bold text-base sm:text-lg flex items-center gap-2">
               Join Interview
-              <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </span>
@@ -341,11 +343,11 @@ export default function ZoomWaitingRoom({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          className="text-center"
+          className="text-center pb-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-400/30">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-400/30">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-emerald-300 text-sm font-medium">Connected • Ready to begin</span>
+            <span className="text-emerald-300 text-xs sm:text-sm font-medium">Connected • Ready to begin</span>
           </div>
         </motion.div>
       </div>
